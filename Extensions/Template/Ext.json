@@ -1,0 +1,262 @@
+{
+	"About":
+	{
+		"Name": "Xable Session Timer",
+		"Author": "Samuel Benton",
+		"Copyright": "Copyright © 2013 Xable Enterprises",
+		"Comment": "Allows of easy usage of different game 'sessions' such as 'Overall Gameplay Time' or individual level playtimes.",
+		"URL": "http://www.xable.us/",
+		"Help": "http://www.xable.us/xable-session-object.html",
+		"Identifier": "PXGT",
+	},
+
+	"ActionMenu":
+	[
+		"Separator",
+		
+		[0, "Define One Second"],
+		
+		"Separator",
+		
+		["Global Session",
+			[1, "Global Session is Active"],
+			[10, "Set New Time for Global Session"],
+			[ "Pause/Resume",
+				[6, "Pause Global Session"],
+				[7, "Resume Global Session"],
+				[13, "Toggle Global Session"],
+			],
+		],
+
+		["Sessions",
+
+			[3, "Add Session"],
+
+			"Separator",
+			
+			[2, "All Sessions are Active"],
+			[8, "'Nth' Session is Active"],
+			
+			"Separator",
+			
+			[9, "Set 'Nth' Session to 'x'"],
+			
+			"Separator",
+			
+			["Pause/Resume",
+				[4, "Pause the 'Nth' Session"],
+				[5, "Resume the 'Nth' Session"],
+				[12, "Toggle 'Nth' Session"],
+			],
+			
+			"Separator",
+			
+			[11, "Delete Session"],		
+		],
+		
+		"Separator",
+		
+		["Automation",
+			[14, "Turn automation on"],
+			[15, "Turn automation off"],
+			[16, "Toggle automation"],
+		],
+						
+	],
+	
+	"ConditionMenu":
+	[
+		[0,"Is 'Nth' Session Active?"],
+		[1,"Is Global Session Active?"],
+		[2,"Every Nth frame"],
+	],
+	"ExpressionMenu":
+	[
+		"Separator",
+
+		[0, "Retrieve One Second"],
+
+		"Separator",
+		
+		["Global Session",
+			[1, "Get Overall Time of Global Session"],
+			[7, "Get Global Session State"],
+		],
+		
+		"Separator",
+		
+		["Sessions",
+			[2, "Get Current Time the 'Nth' Session"],
+			"Separator",
+			[3, "Get Name of the 'Nth' Session"],
+			[4, "Get Index of Session called 'yyy' "],
+			"Separator",
+			[5, "Get Number of Sessions"],
+			[6, "Get Session State"],
+		],
+		
+		"Separator",
+
+		[-1, "Xable Enterprises", true],
+
+		"Separator",
+
+	],
+
+	"Actions":
+	[
+		{	"Title": "Set 'One second' to %0 frames",
+			"Parameters":
+			[
+				["Integer", "Number of frames per second (Usually the framerate) (Positive values only)"]
+			]
+		},
+
+		{	"Title": "Overall Game Session is Ongoing",
+			
+		},
+		{	"Title": "All Sessions are Active",
+
+		},
+		{	"Title": "Add Session (%0) with an inital value of %1 ",
+			"Parameters":
+			[
+				["Text", "Name of Session (Each Session name should be unique) "],
+				["Integer", "Inital Value (Positive values only) "],
+			]
+		},
+			{	"Title": "Pause Session whose index = %0",
+			"Parameters":
+			[
+				["Integer", "Session Index (Positive values only) "],
+			]
+		},
+		{	"Title": "Resume Session whose index =  %0",
+			"Parameters":
+			[
+				["Integer", "Session Index (Positive values only) "],
+			]
+		},
+
+		{	"Title": "Pause Global Session",
+		},
+
+		{	"Title": "Resume Global Session",
+		},
+		{	"Title": "Session %0 is active",
+			"Parameters":
+			[
+				["Integer", "Session Index (Positive values only) "],
+			]
+		},
+			{	"Title": "Set Session %0 to %1",
+			"Parameters":
+			[
+				["Integer", "Session Index (Positive values only) "],
+				["Integer", "New Session Value (Positive values only) "],
+			]
+		},
+		{	"Title": "Set Global Session to %0 seconds",
+			"Parameters":
+			[
+				["Integer", "New Session Time (in seconds)"],
+			]
+		},
+			{	"Title": "Delete Session Number %0",
+			"Parameters":
+			[
+				["Integer", "Session Index (Positive values only)"],
+			]
+		},
+		{	"Title": "Toggle the status of Session Number %0",
+			"Parameters":
+			[
+				["Integer", "Session Index (Positive values only)"],
+			]
+		},
+		{	"Title": "Toggle Game Session State",
+		},
+		{	"Title": "Turn automation on",
+		},
+
+		{	"Title": "Turn automation off",
+		},
+
+		{	"Title": "Toggle automation",
+		},
+
+	],
+	"Conditions":
+	[
+		 {
+			"Title": "%o : Is Session %0 Active?",
+            "Parameters":
+			[
+				["Integer","Session Index"],
+            ],
+            "Triggered": false
+        },
+		{
+			"Title": "%o : Is Global Session Active?",
+			"Triggered": false
+		},
+		 {
+			"Title": "%o : Every %0th frame?",
+            "Parameters":
+			[
+				["Integer","Every nth frame"],
+            ],
+            "Triggered": false
+        },
+	],
+	"Expressions":
+	[
+		{	"Title": "GetOneSecond(",
+			"Returns": "Integer",
+		},
+
+		{	"Title": "GetTotalSeconds(",
+			"Returns": "Integer",
+		},
+		{	"Title": "TimeofNthSession(",
+			"Returns": "Integer",
+			"Parameters":
+			[
+				["Integer", "Nth Session (0-based index)"],
+			]
+		},
+		{	"Title": "Name ofNthSession(",
+			"Returns": "Text",
+			"Parameters":
+			[
+				["Integer", "Nth Session (0-based index)"],
+			]
+		},
+
+		{	"Title": "IndexofSessionbyName(",
+			"Returns": "Integer",
+			"Parameters":
+			[
+				["Text", "Name of the Session"],
+			]
+
+		},
+
+		{	"Title": "NumberofSessions(",
+			"Returns": "Integer",
+		},
+
+		{	"Title": "SessionState(",
+			"Returns": "Integer",
+			"Parameters":
+			[
+				["Integer", "Session Index"],
+			]
+
+		},
+		{	"Title": "GetGlobalSessionState(",
+			"Returns": "Integer",
+		},
+
+	]
+}

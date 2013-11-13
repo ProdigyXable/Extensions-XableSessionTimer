@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="This Extension">
+      <UniqueIdentifier>{639caab9-4bf4-4f0e-bef4-226db876a8d7}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="This Extension\Edittime">
+      <UniqueIdentifier>{d37bb7de-ffb3-4aef-bf6e-667521e81db1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="This Extension\General">
+      <UniqueIdentifier>{88c1a17d-127b-44ee-a381-68087d970339}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="This Extension\Runtime">
+      <UniqueIdentifier>{dcfcdb29-24c3-4b0f-9430-08bc5f3918ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="This Extension\Resource Files">
+      <UniqueIdentifier>{d8e97494-0099-497d-a836-b8cabcf69457}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="This Extension\The Extension Class">
+      <UniqueIdentifier>{9d86e45a-e142-4880-bd28-1d9110c92c47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Global to All Extensions">
+      <UniqueIdentifier>{273c83e4-a0d3-4033-849d-832d7ed61432}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Global to All Extensions\Edif">
+      <UniqueIdentifier>{fe7f4898-e01d-4a9d-9e3d-76c2dd2b2283}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Global to All Extensions\Edif\json">
+      <UniqueIdentifier>{f0de9f1f-33f2-4486-ba9a-b1e80ae64455}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Global to All Extensions\Edif\Riggs">
+      <UniqueIdentifier>{2ca681de-ef71-4a70-962c-7492427a849e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Global to All Extensions\MMF2 SDK">
+      <UniqueIdentifier>{e644f9b8-7e71-4365-8bea-2c98ea1fb7cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Global to All Extensions\MMF2 SDK\Filters">
+      <UniqueIdentifier>{6ce1ed34-d989-4f1f-b62e-d6cf3d7c3771}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Global to All Extensions\MMF2 SDK\Filters\Images">
+      <UniqueIdentifier>{070ede8e-25ab-481e-b9c5-7829368384ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Global to All Extensions\MMF2 SDK\Filters\Sound">
+      <UniqueIdentifier>{ae04f635-52c7-49fb-ade3-efe9e7cb989a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BuildSettings.vsprops">
+      <Filter>This Extension</Filter>
+    </None>
+    <None Include="Ext.def">
+      <Filter>This Extension</Filter>
+    </None>
+    <None Include="Ext.json">
+      <Filter>This Extension\Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CustomParams.cpp">
+      <Filter>This Extension\Edittime</Filter>
+    </ClCompile>
+    <ClCompile Include="Edittime.cpp">
+      <Filter>This Extension\Edittime</Filter>
+    </ClCompile>
+    <ClCompile Include="Properties.cpp">
+      <Filter>This Extension\Edittime</Filter>
+    </ClCompile>
+    <ClCompile Include="TextProps.cpp">
+      <Filter>This Extension\Edittime</Filter>
+    </ClCompile>
+    <ClCompile Include="General.cpp">
+      <Filter>This Extension\General</Filter>
+    </ClCompile>
+    <ClCompile Include="Debugger.cpp">
+      <Filter>This Extension\Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="Runtime.cpp">
+      <Filter>This Extension\Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="Text.cpp">
+      <Filter>This Extension\Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions.cpp">
+      <Filter>This Extension\The Extension Class</Filter>
+    </ClCompile>
+    <ClCompile Include="Conditions.cpp">
+      <Filter>This Extension\The Extension Class</Filter>
+    </ClCompile>
+    <ClCompile Include="Expressions.cpp">
+      <Filter>This Extension\The Extension Class</Filter>
+    </ClCompile>
+    <ClCompile Include="Extension.cpp">
+      <Filter>This Extension\The Extension Class</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Lib\Edif.cpp">
+      <Filter>Global to All Extensions\Edif</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Lib\Edif.Edittime.cpp">
+      <Filter>Global to All Extensions\Edif</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Lib\Edif.General.cpp">
+      <Filter>Global to All Extensions\Edif</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Lib\Edif.Runtime.cpp">
+      <Filter>Global to All Extensions\Edif</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Lib\json.c">
+      <Filter>Global to All Extensions\Edif\json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Lib\ObjectSelection.cpp">
+      <Filter>Global to All Extensions\Edif\Riggs</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EditData.hpp">
+      <Filter>This Extension\Edittime</Filter>
+    </ClInclude>
+    <ClInclude Include="Common.h">
+      <Filter>This Extension\General</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>This Extension\Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Extension.hpp">
+      <Filter>This Extension\The Extension Class</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Inc\Edif.h">
+      <Filter>Global to All Extensions\Edif</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Inc\json.h">
+      <Filter>Global to All Extensions\Edif\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Inc\ObjectSelection.h">
+      <Filter>Global to All Extensions\Edif\Riggs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Inc\Ccx.h">
+      <Filter>Global to All Extensions\MMF2 SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Inc\Ccxhdr.h">
+      <Filter>Global to All Extensions\MMF2 SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Inc\CfcError.h">
+      <Filter>Global to All Extensions\MMF2 SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Inc\CfcFile.h">
+      <Filter>Global to All Extensions\MMF2 SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Inc\Cncf.h">
+      <Filter>Global to All Extensions\MMF2 SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Inc\cncr.h">
+      <Filter>Global to All Extensions\MMF2 SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Inc\Cncy.h">
+      <Filter>Global to All Extensions\MMF2 SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Inc\Cnpdll.h">
+      <Filter>Global to All Extensions\MMF2 SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Inc\colors.h">
+      <Filter>Global to All Extensions\MMF2 SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Inc\EVTCCX.H">
+      <Filter>Global to All Extensions\MMF2 SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Inc\Fill.h">
+      <Filter>Global to All Extensions\MMF2 SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Inc\Palet.h">
+      <Filter>Global to All Extensions\MMF2 SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Inc\Patch.h">
+      <Filter>Global to All Extensions\MMF2 SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Inc\PictEdDefs.h">
+      <Filter>Global to All Extensions\MMF2 SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Inc\Props.h">
+      <Filter>Global to All Extensions\MMF2 SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Inc\PTYPE.H">
+      <Filter>Global to All Extensions\MMF2 SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Inc\Surface.h">
+      <Filter>Global to All Extensions\MMF2 SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Inc\WinMacro.h">
+      <Filter>Global to All Extensions\MMF2 SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Inc\FilterMgr.h">
+      <Filter>Global to All Extensions\MMF2 SDK\Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Inc\ImageFlt.h">
+      <Filter>Global to All Extensions\MMF2 SDK\Filters\Images</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Inc\ImgFlt.h">
+      <Filter>Global to All Extensions\MMF2 SDK\Filters\Images</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Inc\SoundFilter.h">
+      <Filter>Global to All Extensions\MMF2 SDK\Filters\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Inc\SoundFilterMgr.h">
+      <Filter>Global to All Extensions\MMF2 SDK\Filters\Sound</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Ext.rc">
+      <Filter>This Extension\Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Icon.png">
+      <Filter>This Extension\Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

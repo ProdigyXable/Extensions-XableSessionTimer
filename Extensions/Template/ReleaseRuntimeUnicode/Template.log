@@ -1,0 +1,262 @@
+﻿Build started 8/19/2013 4:45:28 PM.
+     1>Project "C:\Users\Xable\Google Drive\MMF2 Extensions\Xable Session Timer\Extensions\Template\Template.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I..\..\Inc /I.\ /Zi /nologo /W3 /WX- /O1 /Ob1 /Oy- /D COXSDK /D IN_EXT_VERSION2 /D _CRT_SECURE_NO_WARNINGS /D _CRT_SECURE_NO_DEPRECATE /D _WINDOWS /D RUN_ONLY /D _WINDLL /D _UNICODE /D UNICODE /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo".\ReleaseRuntimeUnicode\\" /Fd".\ReleaseRuntimeUnicode\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Runtime.cpp Actions.cpp Conditions.cpp Expressions.cpp Extension.cpp
+         Runtime.cpp
+     1>Runtime.cpp(92): error C2665: 'Edif::Runtime::ReadGlobal' : none of the 2 overloads could convert all the argument types
+                 C:\Users\Xable\Google Drive\MMF2 Extensions\Xable Session Timer\Inc\Edif.h(138): could be 'void *Edif::Runtime::ReadGlobal(mv *,CRunApp *,const TCHAR *)'
+                 while trying to match the argument list '(mv *, CRunApp *, const char [15])'
+     1>Runtime.cpp(93): error C2665: 'Edif::Runtime::WriteGlobal' : none of the 2 overloads could convert all the argument types
+                 C:\Users\Xable\Google Drive\MMF2 Extensions\Xable Session Timer\Inc\Edif.h(137): could be 'void Edif::Runtime::WriteGlobal(mv *,CRunApp *,const TCHAR *,void *)'
+                 while trying to match the argument list '(mv *, CRunApp *, const char [15], Extension::OverAllGameData *)'
+     1>Runtime.cpp(107): error C2665: 'Edif::Runtime::ReadGlobal' : none of the 2 overloads could convert all the argument types
+                 C:\Users\Xable\Google Drive\MMF2 Extensions\Xable Session Timer\Inc\Edif.h(138): could be 'void *Edif::Runtime::ReadGlobal(mv *,CRunApp *,const TCHAR *)'
+                 while trying to match the argument list '(mv *, CRunApp *, const char [15])'
+     1>Runtime.cpp(121): error C2665: 'Edif::Runtime::ReadGlobal' : none of the 2 overloads could convert all the argument types
+                 C:\Users\Xable\Google Drive\MMF2 Extensions\Xable Session Timer\Inc\Edif.h(138): could be 'void *Edif::Runtime::ReadGlobal(mv *,CRunApp *,const TCHAR *)'
+                 while trying to match the argument list '(mv *, CRunApp *, const char [22])'
+     1>Runtime.cpp(124): error C2665: 'Edif::Runtime::ReadGlobal' : none of the 2 overloads could convert all the argument types
+                 C:\Users\Xable\Google Drive\MMF2 Extensions\Xable Session Timer\Inc\Edif.h(138): could be 'void *Edif::Runtime::ReadGlobal(mv *,CRunApp *,const TCHAR *)'
+                 while trying to match the argument list '(mv *, CRunApp *, const char [15])'
+     1>Runtime.cpp(124): error C2665: 'Edif::Runtime::WriteGlobal' : none of the 2 overloads could convert all the argument types
+                 C:\Users\Xable\Google Drive\MMF2 Extensions\Xable Session Timer\Inc\Edif.h(137): could be 'void Edif::Runtime::WriteGlobal(mv *,CRunApp *,const TCHAR *,void *)'
+                 while trying to match the argument list '(mv *, CRunApp *, const char [22])'
+     1>Runtime.cpp(128): error C2665: 'Edif::Runtime::ReadGlobal' : none of the 2 overloads could convert all the argument types
+                 C:\Users\Xable\Google Drive\MMF2 Extensions\Xable Session Timer\Inc\Edif.h(138): could be 'void *Edif::Runtime::ReadGlobal(mv *,CRunApp *,const TCHAR *)'
+                 while trying to match the argument list '(mv *, CRunApp *, const char [15])'
+     1>Runtime.cpp(130): error C2665: 'Edif::Runtime::ReadGlobal' : none of the 2 overloads could convert all the argument types
+                 C:\Users\Xable\Google Drive\MMF2 Extensions\Xable Session Timer\Inc\Edif.h(138): could be 'void *Edif::Runtime::ReadGlobal(mv *,CRunApp *,const TCHAR *)'
+                 while trying to match the argument list '(mv *, CRunApp *, const char [22])'
+     1>Runtime.cpp(130): error C2665: 'Edif::Runtime::WriteGlobal' : none of the 2 overloads could convert all the argument types
+                 C:\Users\Xable\Google Drive\MMF2 Extensions\Xable Session Timer\Inc\Edif.h(137): could be 'void Edif::Runtime::WriteGlobal(mv *,CRunApp *,const TCHAR *,void *)'
+                 while trying to match the argument list '(mv *, CRunApp *, const char [15])'
+     1>Runtime.cpp(141): error C2665: 'Edif::Runtime::WriteGlobal' : none of the 2 overloads could convert all the argument types
+                 C:\Users\Xable\Google Drive\MMF2 Extensions\Xable Session Timer\Inc\Edif.h(137): could be 'void Edif::Runtime::WriteGlobal(mv *,CRunApp *,const TCHAR *,void *)'
+                 while trying to match the argument list '(mv *, CRunApp *, const char [22], int)'
+     1>Runtime.cpp(142): error C2665: 'Edif::Runtime::ReadGlobal' : none of the 2 overloads could convert all the argument types
+                 C:\Users\Xable\Google Drive\MMF2 Extensions\Xable Session Timer\Inc\Edif.h(138): could be 'void *Edif::Runtime::ReadGlobal(mv *,CRunApp *,const TCHAR *)'
+                 while trying to match the argument list '(mv *, CRunApp *, const char [22])'
+         Actions.cpp
+     1>Actions.cpp(13): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(13): error C2227: left of '->_EntireGamePaused' must point to class/struct/union/generic type
+     1>Actions.cpp(14): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(14): error C2227: left of '->_EntireGamePaused' must point to class/struct/union/generic type
+     1>Actions.cpp(17): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(17): error C2227: left of '->_OverAllGameTime' must point to class/struct/union/generic type
+     1>Actions.cpp(18): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(18): error C2227: left of '->_FrameCounter' must point to class/struct/union/generic type
+     1>Actions.cpp(24): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(24): error C2227: left of '->_FrameRate' must point to class/struct/union/generic type
+     1>Actions.cpp(29): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(29): error C2227: left of '->_FrameRate' must point to class/struct/union/generic type
+     1>Actions.cpp(35): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(35): error C2227: left of '->_EntireGamePaused' must point to class/struct/union/generic type
+     1>Actions.cpp(37): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(37): error C2227: left of '->_SessionTime' must point to class/struct/union/generic type
+     1>Actions.cpp(37): error C2228: left of '.size' must have class/struct/union
+     1>Actions.cpp(39): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(39): error C2227: left of '->_PauseStates' must point to class/struct/union/generic type
+     1>Actions.cpp(41): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(41): error C2227: left of '->_SessionTime' must point to class/struct/union/generic type
+     1>Actions.cpp(41): error C2227: left of '->_OverAllGameTime' must point to class/struct/union/generic type
+     1>Actions.cpp(48): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(48): error C2227: left of '->_EntireGamePaused' must point to class/struct/union/generic type
+     1>Actions.cpp(50): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(50): error C2227: left of '->_OverAllGameTime' must point to class/struct/union/generic type
+     1>Actions.cpp(56): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(56): error C2227: left of '->_SessionTime' must point to class/struct/union/generic type
+     1>Actions.cpp(56): error C2228: left of '.push_back' must have class/struct/union
+     1>Actions.cpp(56): error C2227: left of '->_FrameRate' must point to class/struct/union/generic type
+     1>Actions.cpp(56): error C2227: left of '->_OverAllGameTime' must point to class/struct/union/generic type
+     1>Actions.cpp(57): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(57): error C2227: left of '->_SessionNames' must point to class/struct/union/generic type
+     1>Actions.cpp(57): error C2228: left of '.push_back' must have class/struct/union
+     1>Actions.cpp(58): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(58): error C2227: left of '->_PauseStates' must point to class/struct/union/generic type
+     1>Actions.cpp(58): error C2228: left of '.push_back' must have class/struct/union
+     1>Actions.cpp(62): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(62): error C2227: left of '->_PauseStates' must point to class/struct/union/generic type
+     1>Actions.cpp(62): error C2228: left of '.size' must have class/struct/union
+     1>Actions.cpp(64): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(64): error C2227: left of '->_PauseStates' must point to class/struct/union/generic type
+     1>Actions.cpp(69): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(69): error C2227: left of '->_PauseStates' must point to class/struct/union/generic type
+     1>Actions.cpp(69): error C2228: left of '.size' must have class/struct/union
+     1>Actions.cpp(71): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(71): error C2227: left of '->_PauseStates' must point to class/struct/union/generic type
+     1>Actions.cpp(76): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(76): error C2227: left of '->_EntireGamePaused' must point to class/struct/union/generic type
+     1>Actions.cpp(80): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(80): error C2227: left of '->_EntireGamePaused' must point to class/struct/union/generic type
+     1>Actions.cpp(84): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(84): error C2227: left of '->_SessionTime' must point to class/struct/union/generic type
+     1>Actions.cpp(84): error C2228: left of '.size' must have class/struct/union
+     1>Actions.cpp(86): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(86): error C2227: left of '->_SessionTime' must point to class/struct/union/generic type
+     1>Actions.cpp(92): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(92): error C2227: left of '->_SessionTime' must point to class/struct/union/generic type
+     1>Actions.cpp(92): error C2228: left of '.size' must have class/struct/union
+     1>Actions.cpp(96): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(96): error C2227: left of '->_SessionTime' must point to class/struct/union/generic type
+     1>Actions.cpp(96): error C2227: left of '->_FrameRate' must point to class/struct/union/generic type
+     1>Actions.cpp(104): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(104): error C2227: left of '->_OverAllGameTime' must point to class/struct/union/generic type
+     1>Actions.cpp(104): error C2227: left of '->_FrameRate' must point to class/struct/union/generic type
+     1>Actions.cpp(109): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(109): error C2227: left of '->_SessionTime' must point to class/struct/union/generic type
+     1>Actions.cpp(109): error C2228: left of '.size' must have class/struct/union
+     1>Actions.cpp(112): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(112): error C2227: left of '->_SessionTime' must point to class/struct/union/generic type
+     1>Actions.cpp(112): error C2228: left of '.erase' must have class/struct/union
+     1>Actions.cpp(112): error C2228: left of '.begin' must have class/struct/union
+     1>Actions.cpp(113): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(113): error C2227: left of '->_SessionNames' must point to class/struct/union/generic type
+     1>Actions.cpp(113): error C2228: left of '.erase' must have class/struct/union
+     1>Actions.cpp(113): error C2228: left of '.begin' must have class/struct/union
+     1>Actions.cpp(114): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(114): error C2227: left of '->_PauseStates' must point to class/struct/union/generic type
+     1>Actions.cpp(114): error C2228: left of '.erase' must have class/struct/union
+     1>Actions.cpp(114): error C2228: left of '.begin' must have class/struct/union
+     1>Actions.cpp(120): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(120): error C2227: left of '->_SessionTime' must point to class/struct/union/generic type
+     1>Actions.cpp(120): error C2228: left of '.size' must have class/struct/union
+     1>Actions.cpp(122): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(122): error C2227: left of '->_PauseStates' must point to class/struct/union/generic type
+     1>Actions.cpp(127): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(127): error C2227: left of '->_EntireGamePaused' must point to class/struct/union/generic type
+     1>Actions.cpp(131): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(131): error C2227: left of '->automate' must point to class/struct/union/generic type
+     1>Actions.cpp(135): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(135): error C2227: left of '->automate' must point to class/struct/union/generic type
+     1>Actions.cpp(139): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Actions.cpp(139): error C2227: left of '->automate' must point to class/struct/union/generic type
+         Conditions.cpp
+     1>Conditions.cpp(13): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Conditions.cpp(13): error C2227: left of '->_SessionNames' must point to class/struct/union/generic type
+     1>Conditions.cpp(13): error C2228: left of '.size' must have class/struct/union
+     1>Conditions.cpp(18): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Conditions.cpp(18): error C2227: left of '->_EntireGamePaused' must point to class/struct/union/generic type
+     1>Conditions.cpp(20): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Conditions.cpp(20): error C2227: left of '->_PauseStates' must point to class/struct/union/generic type
+     1>Conditions.cpp(31): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Conditions.cpp(31): error C2227: left of '->_EntireGamePaused' must point to class/struct/union/generic type
+     1>Conditions.cpp(37): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Conditions.cpp(37): error C2227: left of '->_EntireGamePaused' must point to class/struct/union/generic type
+     1>Conditions.cpp(38): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Conditions.cpp(38): error C2227: left of '->_EntireGamePaused' must point to class/struct/union/generic type
+     1>Conditions.cpp(40): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Conditions.cpp(40): error C2227: left of '->_FrameCounter' must point to class/struct/union/generic type
+     1>Conditions.cpp(43): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Conditions.cpp(43): error C2227: left of '->_FrameCounter' must point to class/struct/union/generic type
+         Expressions.cpp
+     1>Expressions.cpp(15): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Expressions.cpp(15): error C2227: left of '->_FrameRate' must point to class/struct/union/generic type
+     1>Expressions.cpp(20): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Expressions.cpp(20): error C2227: left of '->_OverAllGameTime' must point to class/struct/union/generic type
+     1>Expressions.cpp(20): error C2227: left of '->_FrameRate' must point to class/struct/union/generic type
+     1>Expressions.cpp(25): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Expressions.cpp(25): error C2227: left of '->_SessionTime' must point to class/struct/union/generic type
+     1>Expressions.cpp(25): error C2228: left of '.size' must have class/struct/union
+     1>Expressions.cpp(27): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Expressions.cpp(27): error C2227: left of '->_SessionTime' must point to class/struct/union/generic type
+     1>Expressions.cpp(27): error C2227: left of '->_FrameRate' must point to class/struct/union/generic type
+     1>Expressions.cpp(38): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Expressions.cpp(38): error C2227: left of '->_SessionTime' must point to class/struct/union/generic type
+     1>Expressions.cpp(38): error C2228: left of '.size' must have class/struct/union
+     1>Expressions.cpp(40): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Expressions.cpp(40): error C2227: left of '->_SessionNames' must point to class/struct/union/generic type
+     1>Expressions.cpp(55): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Expressions.cpp(55): error C2227: left of '->_SessionNames' must point to class/struct/union/generic type
+     1>Expressions.cpp(63): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Expressions.cpp(63): error C2227: left of '->_SessionNames' must point to class/struct/union/generic type
+     1>Expressions.cpp(63): error C2228: left of '.size' must have class/struct/union
+     1>Expressions.cpp(79): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Expressions.cpp(79): error C2227: left of '->_SessionTime' must point to class/struct/union/generic type
+     1>Expressions.cpp(79): error C2228: left of '.size' must have class/struct/union
+     1>Expressions.cpp(84): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Expressions.cpp(84): error C2227: left of '->_EntireGamePaused' must point to class/struct/union/generic type
+     1>Expressions.cpp(86): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Expressions.cpp(86): error C2227: left of '->_PauseStates' must point to class/struct/union/generic type
+     1>Expressions.cpp(93): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Expressions.cpp(93): error C2227: left of '->_EntireGamePaused' must point to class/struct/union/generic type
+     1>Expressions.cpp(95): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Expressions.cpp(95): error C2227: left of '->_PauseStates' must point to class/struct/union/generic type
+     1>Expressions.cpp(113): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Expressions.cpp(113): error C2227: left of '->_EntireGamePaused' must point to class/struct/union/generic type
+         Extension.cpp
+     1>Extension.cpp(81): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Extension.cpp(81): error C2227: left of '->_FrameRate' must point to class/struct/union/generic type
+     1>Extension.cpp(82): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Extension.cpp(82): error C2227: left of '->_OverAllGameTime' must point to class/struct/union/generic type
+     1>Extension.cpp(138): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Extension.cpp(138): error C2227: left of '->automate' must point to class/struct/union/generic type
+     1>Extension.cpp(146): error C2664: 'void *Edif::Runtime::ReadGlobal(const TCHAR *)' : cannot convert parameter 1 from 'const char [15]' to 'const TCHAR *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Extension.cpp(146): error C2227: left of '->_FrameCounter' must point to class/struct/union/generic type
+         Generating Code...
+     1>Done Building Project "C:\Users\Xable\Google Drive\MMF2 Extensions\Xable Session Timer\Extensions\Template\Template.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:05.41
