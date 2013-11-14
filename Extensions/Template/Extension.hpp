@@ -150,6 +150,7 @@ public:
 	bool IsSessionActive(unsigned int x);
 	bool IsGameSessionActive();
 	bool FrameModulus(int modulus);
+	bool ImmediateFrameModulus(int modulus);
 
 
 

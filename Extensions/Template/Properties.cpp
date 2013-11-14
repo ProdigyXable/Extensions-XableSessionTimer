@@ -143,7 +143,7 @@ void *MMF2Func GetPropValue(mv *mV, SerializedED *SED, UINT PropID)
 		}
 	case Prop::Version:
 		{
-			return new CPropDataValue("August 19th, 2013");
+			return new CPropDataValue("November 13th, 2013");
 		}
 	
 	//case Prop::MyString:

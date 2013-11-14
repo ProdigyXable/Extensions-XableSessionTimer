@@ -63,8 +63,7 @@ Extension::Extension(RD *rd, SerializedED *SED, createObjectInfo *COB) : rd(rd),
 	LinkCondition(0, IsSessionActive);
 	LinkCondition(1, IsGameSessionActive);
 	LinkCondition(2, FrameModulus);
-
-	// LinkCondition(0, AreTwoNumbersEqual);
+	LinkCondition(3, ImmediateFrameModulus);
 
 	//This is where you'd do anything you'd do in CreateRunObject in the original SDK.
 	//It's the only place you'll get access to the editdata at runtime, so you should
@@ -144,6 +143,8 @@ short Extension::Handle()
 	}
 
 	((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->_FrameCounter++;
+	
+	Runtime.GenerateEvent(3);
 
 
 	return 0;

@@ -35,23 +35,24 @@
 			"Separator",
 			
 			[2, "All Sessions are Active"],
-			[8, "'Nth' Session is Active"],
+			[8, "Specific Session is Active"],
 			
 			"Separator",
 			
-			[9, "Set 'Nth' Session to 'x'"],
+			[9, "Change Time of Specific Session"],
 			
 			"Separator",
 			
 			["Pause/Resume",
-				[4, "Pause the 'Nth' Session"],
-				[5, "Resume the 'Nth' Session"],
-				[12, "Toggle 'Nth' Session"],
+				[4, "Pause a Specific Session"],
+				[5, "Resume a Specific Session"],
+				"Separator",
+				[12, "Toggle a Specific Session"],
 			],
 			
 			"Separator",
 			
-			[11, "Delete Session"],		
+			[11, "Delete a Specific Session"],		
 		],
 		
 		"Separator",
@@ -59,6 +60,7 @@
 		["Automation",
 			[14, "Turn automation on"],
 			[15, "Turn automation off"],
+			"Separator",
 			[16, "Toggle automation"],
 		],
 						
@@ -66,9 +68,10 @@
 	
 	"ConditionMenu":
 	[
-		[0,"Is 'Nth' Session Active?"],
+		[0,"Is Specific Session Active?"],
 		[1,"Is Global Session Active?"],
 		[2,"Every Nth frame"],
+		[3, "Every Nth frame (Immediate)"],
 	],
 	"ExpressionMenu":
 	[
@@ -201,12 +204,20 @@
 			"Triggered": false
 		},
 		 {
-			"Title": "%o : Every %0th frame?",
+			"Title": "%o : Every %0 frames?",
             "Parameters":
 			[
 				["Integer","Every nth frame"],
             ],
             "Triggered": false
+        },
+		 {
+			"Title": "%o : Every %0 frames?",
+            "Parameters":
+			[
+				["Integer","Every x frames"],
+            ],
+            "Triggered": true
         },
 	],
 	"Expressions":

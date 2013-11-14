@@ -50,3 +50,22 @@ bool Extension::FrameModulus(int modulus)
 		return false;
 	}
 }
+
+bool Extension::ImmediateFrameModulus(int modulus)
+{
+	if(((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->_EntireGamePaused != true &&
+		((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->_EntireGamePaused != false)
+	{
+		((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->_FrameCounter = 0;
+	}
+
+	if  (((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->_FrameCounter % modulus == 0)
+	{
+		return true;
+	}
+
+	else
+	{
+		return false;
+	}
+}
