@@ -128,6 +128,7 @@ public:
 	int NumberofSessions();
 	int SessionState(unsigned int x);
 	int GlobalSessionState();
+	bool ReturnAutomation();
 
 	void SetFrameRate(int x);
 	void IncreaseTotalTime();
@@ -151,6 +152,8 @@ public:
 	bool IsGameSessionActive();
 	bool FrameModulus(int modulus);
 	bool ImmediateFrameModulus(int modulus);
+	bool AutomationTest();
+	bool AutomationChanged();
 
 
 

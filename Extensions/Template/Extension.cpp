@@ -41,6 +41,7 @@ Extension::Extension(RD *rd, SerializedED *SED, createObjectInfo *COB) : rd(rd),
 	LinkExpression(5, NumberofSessions);
 	LinkExpression(6, SessionState);
 	LinkExpression(7, GlobalSessionState);
+	LinkExpression(8, ReturnAutomation);
 
 	LinkAction(0, SetFrameRate);
 	LinkAction(1, IncreaseTotalTime);
@@ -64,11 +65,15 @@ Extension::Extension(RD *rd, SerializedED *SED, createObjectInfo *COB) : rd(rd),
 	LinkCondition(1, IsGameSessionActive);
 	LinkCondition(2, FrameModulus);
 	LinkCondition(3, ImmediateFrameModulus);
+	LinkCondition(4, AutomationTest);
+	LinkCondition(5, AutomationChanged);
 
 	//This is where you'd do anything you'd do in CreateRunObject in the original SDK.
 	//It's the only place you'll get access to the editdata at runtime, so you should
 	//transfer anything from the editdata to the extension class here. For example:
-//	EditData ed (SED);
+	
+	EditData ed (SED);
+	((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->automate = ed.automation;
 //	MyString = ed.MyString;
 //	MyInt = ed.MyInt;
 //	MyArray = ed.MyArray;
@@ -77,6 +82,7 @@ Extension::Extension(RD *rd, SerializedED *SED, createObjectInfo *COB) : rd(rd),
 
 
 	Extension::UnPauseGameSession();
+	
 	((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->_FrameRate = Extension::rh->rhApp->m_hdr.gaFrameRate;
 	((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->_OverAllGameTime = 0;
 		

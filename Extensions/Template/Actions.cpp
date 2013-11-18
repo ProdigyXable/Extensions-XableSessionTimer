@@ -128,13 +128,37 @@
  }
  void Extension::AutomateOn()
  {
+	bool Check = false;
+	if( ((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->automate == false)
+	{
+		Check = true;
+		
+	}
 	  ((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->automate = true;
+ 	
+	  if(Check)
+	  {
+		  Runtime.GenerateEvent(5);
+	  }
  }
  void Extension::AutomateOff()
  {
+	bool Check = false;
+	if( ((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->automate == true)
+	{
+		Check = true;
+		
+	}
 	  ((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->automate = false;
+ 	
+	  if(Check)
+	  {
+		  Runtime.GenerateEvent(5);
+	  }
  }
  void Extension::AutomateToggle()
  {
 	  ((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->automate = !( ((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->automate);
+	
+	  Runtime.GenerateEvent(5);
  }

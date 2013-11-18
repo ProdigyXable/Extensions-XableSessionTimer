@@ -69,3 +69,13 @@ bool Extension::ImmediateFrameModulus(int modulus)
 		return false;
 	}
 }
+
+bool Extension::AutomationTest()
+{
+	return ((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->automate;
+}
+
+bool Extension::AutomationChanged()
+{
+	return true;
+}

@@ -26,9 +26,11 @@ struct EditData
 	 * when your extension is first created and
 	 * default values are needed.
 	 */
+	bool automation;
 	EditData() // : MyString("Hello, world!"), MyInt(1337)
 	{
 		//MyArray.push_back(3.1415926f);
+		automation = true;
 	}
 
 	/* <copy constructor>
@@ -53,6 +55,7 @@ struct EditData
 		//MyString = from.MyString;
 		//MyInt = from.MyInt;
 		//MyArray = from.MyArray;
+		automation = from.automation;
 	}
 
 #ifndef RUN_ONLY
@@ -70,6 +73,7 @@ struct EditData
 		//size += sizeof(MyInt);
 		//size += sizeof(MyArray_t::size_type);
 		//size += MyArray.size() * sizeof(MyArray_t::value_type);
+		size += sizeof(automation);
 
 		//Then, ask MMF2 to provide this space for us in the SerializedED
 		{
@@ -100,6 +104,8 @@ struct EditData
 		//the sizes in variables or make macros for them.
 
 		//Done!
+		memcpy(p, &automation, sizeof(automation));
+		p += sizeof(automation);
 		return true; //return false in the event of an error
 	}
 #endif
@@ -124,6 +130,8 @@ struct EditData
 		{
 			//We have to do some crazy stuff again!
 			char *p = (char *)(&SED->data);
+			automation = *(bool *)p;
+			p += sizeof(automation);
 			//Load the data:													Advance the pointer:
 			//MyString = p; /*std::string is smart enough for this*/			p += (MyString.length()+1) * sizeof(stdtstring::value_type);
 			//MyInt = *(int *)p;												p += sizeof(MyInt);

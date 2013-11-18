@@ -120,3 +120,8 @@ int Extension::GlobalSessionState()
 		return 0;
 	}
 }
+
+bool Extension::ReturnAutomation()
+{
+	return ((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->automate;
+}

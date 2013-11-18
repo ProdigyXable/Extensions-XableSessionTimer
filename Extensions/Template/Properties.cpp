@@ -34,6 +34,7 @@ namespace Prop
 		zNOT_USED = PROPID_EXTITEM_CUSTOM_FIRST,
 		Version,
 		Issues,
+		Automate,
 		//MyString,
 		//MyInt,
 	};
@@ -43,6 +44,7 @@ PropData Properties[] = //See the MMF2SDK help file for information on PropData_
 {
 	PropData_StaticString(Prop::Version, (UINT_PTR)"Version:", (UINT_PTR)"Extension Version number"),
 	PropData_StaticString(Prop::Issues, (UINT_PTR)"Email", (UINT_PTR)"Any comments/issues/complaints/questions/etc should be sent here"),
+	PropData_CheckBox(Prop::Automate, (UINT_PTR)"Automation",(UINT_PTR)"Allow the object to handle itself?"),
 	//PropData_EditMultiLine(Prop::MyString, (UINT_PTR)"My String", (UINT_PTR)"The contents of my string."),
 	//PropData_EditNumber(Prop::MyInt, (UINT_PTR)"My Integer", (UINT_PTR)"The value of my integer."),
 	PropData_End()
@@ -204,16 +206,16 @@ void MMF2Func SetPropValue(mv *mV, SerializedED *SED, UINT PropID, CPropValue *P
 BOOL MMF2Func GetPropCheck(mv *mV, SerializedED *SED, UINT PropID)
 {
 #ifndef RUN_ONLY
-	//EditData ed (SED);
-	//switch(PropID)
-	//{
-	//case Prop::MyCheckBoxPropertyOrPropertyThatHasTheCheckboxOptionSet:
-	//	{
-	//		return ed.WhetherOrNotThatPropertyOfMineIsTicked ? TRUE : FALSE;
-	//	}
-	//}
+	EditData ed (SED);
+	switch(PropID)
+	{
+	case Prop::Automate:
+		{
+			return ed.automation;
+		}
+	}
 	//if you changed ed:
-	//ed.Serialize(mV, SED);
+	ed.Serialize(mV, SED);
 #endif
 	return FALSE;
 }
@@ -229,16 +231,15 @@ BOOL MMF2Func GetPropCheck(mv *mV, SerializedED *SED, UINT PropID)
 void MMF2Func SetPropCheck(mv *mV, SerializedED *SED, UINT PropID, BOOL Ticked)
 {
 #ifndef RUN_ONLY
-	//EditData ed (SED);
-	//switch(PropID)
-	//{
-	//case Prop::MyCheckBoxPropertyOrPropertyThatHasTheCheckboxOptionSet:
-	//	{
-	//		ed.WhetherOrNotThatPropertyOfMineIsTicked = Ticked != FALSE ? true : false;
-	//	}
-	//}
-	//since you changed ed:
-	//ed.Serialize(mV, SED);
+	EditData ed (SED);
+	switch(PropID)
+	{
+	case Prop::Automate:
+		{
+			ed.automation = !ed.automation;
+		}
+	}
+	ed.Serialize(mV, SED);
 #endif
 }
 
@@ -287,6 +288,10 @@ BOOL MMF2Func IsPropEnabled(mv *mV, SerializedED *SED, UINT PropID)
 			return TRUE;
 		}
 		case Prop::Issues:
+		{
+			return TRUE;
+		}
+		case Prop::Automate:
 		{
 			return TRUE;
 		}

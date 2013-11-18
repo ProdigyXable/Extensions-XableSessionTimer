@@ -39,7 +39,6 @@ int MMF2Func CreateObject(mv *mV, LO *lo, SerializedED *SED)
 	if(IS_COMPATIBLE(mV)) //Make sure MMF2 hasn't changed in a way that makes your extension incompatible
 	{
 		Edif::Init(mV, SED);
-
 		EditData().Serialize(mV, SED); //create & store the default editdata
 
 		return 0;

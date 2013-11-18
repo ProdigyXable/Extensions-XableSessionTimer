@@ -71,7 +71,13 @@
 		[0,"Is Specific Session Active?"],
 		[1,"Is Global Session Active?"],
 		[2,"Every Nth frame"],
-		[3, "Every Nth frame (Immediate)"],
+		[3,"Every Nth frame (Immediate)"],
+
+		["Automation",
+			[4,"Is Automation On?"],
+			[5, "Has Automation Changed?"], 
+		],
+
 	],
 	"ExpressionMenu":
 	[
@@ -97,10 +103,14 @@
 			[5, "Get Number of Sessions"],
 			[6, "Get Session State"],
 		],
+
+		["Automation",
+			[8, "Return Automation State"],
+		],
 		
 		"Separator",
 
-		[-1, "Xable Enterprises", true],
+		
 
 		"Separator",
 
@@ -219,6 +229,14 @@
             ],
             "Triggered": true
         },
+		{
+			"Title": "%o : Is Automation on?",
+            "Triggered": false
+        },
+		 {
+			"Title": "%o : Has Automation changed?",
+            "Triggered": true
+        },
 	],
 	"Expressions":
 	[
@@ -266,6 +284,9 @@
 
 		},
 		{	"Title": "GetGlobalSessionState(",
+			"Returns": "Integer",
+		},
+		{	"Title": "ReturnAutomation(",
 			"Returns": "Integer",
 		},
 
