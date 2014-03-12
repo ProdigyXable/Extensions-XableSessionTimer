@@ -1,6 +1,6 @@
 <b><i>Xable Session Timer</i></b>
 
-Allows you to easily keep track of custom 'game sessions' witihn MMF2 & Fusion 2.5 
+Allows you to easily keep track of custom 'game sessions' witihn MMF2 & Clickteam Fusion
 
 <hr/>
 <i>Notes</i>
@@ -11,4 +11,4 @@ Allows you to easily keep track of custom 'game sessions' witihn MMF2 & Fusion 2
 		- Extension Version
 		- How to reproduce the crash
 		- Files as necessary
-		- Any other important informationf
+		- Any other important information
