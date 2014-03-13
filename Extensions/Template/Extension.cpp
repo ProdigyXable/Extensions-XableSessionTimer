@@ -83,7 +83,7 @@ Extension::Extension(RD *rd, SerializedED *SED, createObjectInfo *COB) : rd(rd),
 
 	Extension::UnPauseGameSession();
 	
-	((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->_FrameRate = Extension::rh->rhApp->m_hdr.gaFrameRate;
+//	((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->_FrameRate = Extension::rh->rhApp->m_hdr.gaFrameRate;
 	((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->_OverAllGameTime = 0;
 		
 }

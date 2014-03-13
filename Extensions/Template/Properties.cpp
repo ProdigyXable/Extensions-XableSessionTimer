@@ -35,6 +35,7 @@ namespace Prop
 		Version,
 		Issues,
 		Automate,
+		TickSize,
 		//MyString,
 		//MyInt,
 	};
@@ -45,6 +46,7 @@ PropData Properties[] = //See the MMF2SDK help file for information on PropData_
 	PropData_StaticString(Prop::Version, (UINT_PTR)"Version:", (UINT_PTR)"Extension Version number"),
 	PropData_StaticString(Prop::Issues, (UINT_PTR)"Email", (UINT_PTR)"Any comments/issues/complaints/questions/etc should be sent here"),
 	PropData_CheckBox(Prop::Automate, (UINT_PTR)"Automation",(UINT_PTR)"Allow the object to handle itself?"),
+	PropData_EditNumber_Check(Prop::TickSize,(UINT_PTR)"Frames per Game Second",(UINT_PTR)"How many in-game frames equate to one in-game second?"),
 	//PropData_EditMultiLine(Prop::MyString, (UINT_PTR)"My String", (UINT_PTR)"The contents of my string."),
 	//PropData_EditNumber(Prop::MyInt, (UINT_PTR)"My Integer", (UINT_PTR)"The value of my integer."),
 	PropData_End()
@@ -136,7 +138,7 @@ void MMF2Func ReleasePropCreateParam(mv *mV, SerializedED *SED, UINT PropID, LPA
 void *MMF2Func GetPropValue(mv *mV, SerializedED *SED, UINT PropID)
 {
 #ifndef RUN_ONLY
-	//EditData ed (SED);
+	EditData ed (SED);
 	switch(PropID)
 	{
 	case Prop::Issues:
@@ -147,6 +149,12 @@ void *MMF2Func GetPropValue(mv *mV, SerializedED *SED, UINT PropID)
 		{
 			return new CPropDataValue("November 13th, 2013");
 		}
+	case Prop::TickSize:
+		{
+			return new CPropIntValue(ed.TickSize);
+		}
+
+
 	
 	//case Prop::MyString:
 	//	{
@@ -172,22 +180,22 @@ void *MMF2Func GetPropValue(mv *mV, SerializedED *SED, UINT PropID)
 void MMF2Func SetPropValue(mv *mV, SerializedED *SED, UINT PropID, CPropValue *PropVal)
 {
 #ifndef RUN_ONLY
-	//EditData ed (SED);
-	//switch(PropID)
-	//{
+	EditData ed (SED);
+	switch(PropID)
+	{
 	//case PropData::MyString:
 	//	{
 	//		ed.MyString = (LPSTR)((CPropDataValue*)PropVal)->m_pData;
 	//		break;
 	//	}
-	//case PropData::MyInt:
-	//	{
-	//		ed.MyInt = (CPropDWordValue*)PropVal)->m_dwValue;
-	//		break;
-	//	}
-	//}
+	case Prop::TickSize:
+		{
+			ed.TickSize = max(((CPropDWordValue*)PropVal)->m_dwValue,1);
+			break;
+		}
+	}
 	//since you changed ed:
-	//ed.Serialize(mV, SED);
+	ed.Serialize(mV, SED);
 
 	//You may want to have your object redrawn in the
 	//frame editor after the modifications; in this
@@ -213,6 +221,10 @@ BOOL MMF2Func GetPropCheck(mv *mV, SerializedED *SED, UINT PropID)
 		{
 			return ed.automation;
 		}
+	case Prop::TickSize:
+		{
+			return ed.TickSizeCheck;
+		}
 	}
 	//if you changed ed:
 	ed.Serialize(mV, SED);
@@ -224,7 +236,7 @@ BOOL MMF2Func GetPropCheck(mv *mV, SerializedED *SED, UINT PropID)
  * The user has painstakingly moved the
  * mouse cursor over the checkbox and
  * expended the immense effort required
- * tso click the mouse and toggle the
+ * to click the mouse and toggle the
  * state of the tickbox. Don't let their
  * effort be all for naught!
  */
@@ -236,10 +248,20 @@ void MMF2Func SetPropCheck(mv *mV, SerializedED *SED, UINT PropID, BOOL Ticked)
 	{
 	case Prop::Automate:
 		{
-			ed.automation = !ed.automation;
+			ed.automation = Ticked;
+			break;
 		}
-	}
+	case Prop::TickSize:
+		{
+			ed.TickSizeCheck = Ticked;
+			break;
+		}
+	}	
+
+	
 	ed.Serialize(mV, SED);
+	mvRefreshProp(mV, SED, Prop::TickSize, false);
+	
 #endif
 }
 
@@ -280,7 +302,7 @@ BOOL MMF2Func EditProp(mv *mV, SerializedED *SED, UINT PropID)
 BOOL MMF2Func IsPropEnabled(mv *mV, SerializedED *SED, UINT PropID)
 {
 #ifndef RUN_ONLY
-	//EditData ed (SED);
+	EditData ed (SED);
 	switch(PropID)
 	{
 		case Prop::Version:
@@ -292,8 +314,13 @@ BOOL MMF2Func IsPropEnabled(mv *mV, SerializedED *SED, UINT PropID)
 			return TRUE;
 		}
 		case Prop::Automate:
+
 		{
 			return TRUE;
+		}
+		case Prop::TickSize:
+		{
+			return !ed.automation;
 		}
 	//case Prop::MyString:	//intentional\\
 	//case Prop::MyInt:		//fallthrough\\
@@ -303,6 +330,8 @@ BOOL MMF2Func IsPropEnabled(mv *mV, SerializedED *SED, UINT PropID)
 	}
 	//if you changed ed:
 	//ed.Serialize(mV, SED);
+
+	
 #endif
 	return FALSE;
 }
