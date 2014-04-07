@@ -27,16 +27,17 @@ struct EditData
 	 * when your extension is first created and
 	 * default values are needed.
 	 */
-	bool automation,TickSizeCheck;
+	bool automation;
+	bool TickSizeCheck;
 	int TickSize;
-	EditData() // : MyString("Hello, world!"), MyInt(1337)
+	bool refresh;
+
+	EditData()
 	{
-		//MyArray.push_back(3.1415926f);
 		automation = true;
 		TickSizeCheck = false;
 		TickSize = 60;
-
-
+		refresh = false;
 	}
 
 	/* <copy constructor>
@@ -47,7 +48,10 @@ struct EditData
 	 */
 	EditData(const EditData &from) // : MyString(from.MyString), MyInt(from.MyInt), MyArray(from.MyArray)
 	{
-		//
+		automation = from.automation;
+		TickSizeCheck = from.TickSizeCheck;
+		TickSize = from.TickSize;
+		refresh = from.refresh;
 	}
 
 	/* operator=
@@ -58,12 +62,10 @@ struct EditData
 	 */
 	EditData &operator=(const EditData &from)
 	{
-		//MyString = from.MyString;
-		//MyInt = from.MyInt;
-		//MyArray = from.MyArray;
 		automation = from.automation;
 		TickSize = from.TickSize;
 		TickSizeCheck = from.TickSizeCheck;
+		refresh = from.refresh;
 	}
 
 #ifndef RUN_ONLY
@@ -84,6 +86,7 @@ struct EditData
 		size += sizeof(automation);
 		size += sizeof(TickSize);
 		size += sizeof(TickSizeCheck);
+		size += sizeof(refresh);
 
 		//Then, ask MMF2 to provide this space for us in the SerializedED
 		{
@@ -122,6 +125,10 @@ struct EditData
 
 		memcpy(p, &TickSizeCheck, sizeof(TickSizeCheck));
 		p += sizeof(TickSizeCheck);
+
+		memcpy(p, &refresh, sizeof(refresh));
+		p += sizeof(refresh);
+
 		return true; //return false in the event of an error
 	}
 #endif
@@ -154,6 +161,9 @@ struct EditData
 
 			TickSizeCheck = *(bool *)p;
 			p += sizeof(TickSizeCheck);
+			
+			refresh = *(bool *)p;
+			p += sizeof(refresh);
 			//Load the data:													Advance the pointer:
 			//MyString = p; /*std::string is smart enough for this*/			p += (MyString.length()+1) * sizeof(stdtstring::value_type);
 			//MyInt = *(int *)p;												p += sizeof(MyInt);

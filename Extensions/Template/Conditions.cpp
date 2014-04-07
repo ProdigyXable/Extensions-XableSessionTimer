@@ -10,14 +10,14 @@
 
 bool Extension::IsSessionActive(unsigned int x)
 {
-	if (x < 0 || x > ((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->_SessionNames.size())
+	if (x < 0 || x > GlobalData->_SessionNames.size())
 	{
 		return false;
 	}
 
-	else if(((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->_EntireGamePaused == false)
+	else if(GlobalData->_EntireGamePaused == false)
 	{
-		return !((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->_PauseStates[x];
+		return !GlobalData->_PauseStates[x];
 	}
 
 	else
@@ -25,22 +25,20 @@ bool Extension::IsSessionActive(unsigned int x)
 		return false;
 	}
 }
-
 bool Extension::IsGameSessionActive()
 {
-	return !((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->_EntireGamePaused;
+	return !GlobalData->_EntireGamePaused;
 }
-
-bool Extension::FrameModulus(int modulus)
+bool Extension::FrameModulus(unsigned int modulus)
 {
 
-	if(((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->_EntireGamePaused != true &&
-		((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->_EntireGamePaused != false)
+	if(GlobalData->_EntireGamePaused != true &&
+		GlobalData->_EntireGamePaused != false)
 	{
-		((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->_FrameCounter = 0;
+		GlobalData->_FrameCounter = 0;
 	}
 
-	if  (((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->_FrameCounter % modulus == 0)
+	if  (GlobalData->_FrameCounter % modulus == 0)
 	{
 		return true;
 	}
@@ -50,16 +48,15 @@ bool Extension::FrameModulus(int modulus)
 		return false;
 	}
 }
-
-bool Extension::ImmediateFrameModulus(int modulus)
+bool Extension::ImmediateFrameModulus(unsigned int modulus)
 {
-	if(((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->_EntireGamePaused != true &&
-		((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->_EntireGamePaused != false)
+	if(GlobalData->_EntireGamePaused != true &&
+		GlobalData->_EntireGamePaused != false)
 	{
-		((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->_FrameCounter = 0;
+		GlobalData->_FrameCounter = 0;
 	}
 
-	if  (((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->_FrameCounter % modulus == 0)
+	if  (GlobalData->_FrameCounter % modulus == 0)
 	{
 		return true;
 	}
@@ -69,13 +66,19 @@ bool Extension::ImmediateFrameModulus(int modulus)
 		return false;
 	}
 }
-
 bool Extension::AutomationTest()
 {
-	return ((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->automate;
+	return GlobalData->automate;
 }
-
 bool Extension::AutomationChanged()
+{
+	return true;
+}
+bool Extension::RefreshTest()
+{
+	return GlobalData->refresh;
+}
+bool Extension::RefreshChanged()
 {
 	return true;
 }

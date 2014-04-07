@@ -42,6 +42,7 @@ Extension::Extension(RD *rd, SerializedED *SED, createObjectInfo *COB) : rd(rd),
 	LinkExpression(6, SessionState);
 	LinkExpression(7, GlobalSessionState);
 	LinkExpression(8, ReturnAutomation);
+	LinkExpression(9, ReturnRefresh);
 
 	LinkAction(0, SetFrameRate);
 	LinkAction(1, IncreaseTotalTime);
@@ -60,6 +61,9 @@ Extension::Extension(RD *rd, SerializedED *SED, createObjectInfo *COB) : rd(rd),
 	LinkAction(14, AutomateOn);
 	LinkAction(15, AutomateOff);
 	LinkAction(16, AutomateToggle);
+	LinkAction(17, RefreshOn);
+	LinkAction(18, RefreshOff);
+	LinkAction(19, RefreshToggle);
 
 	LinkCondition(0, IsSessionActive);
 	LinkCondition(1, IsGameSessionActive);
@@ -67,25 +71,44 @@ Extension::Extension(RD *rd, SerializedED *SED, createObjectInfo *COB) : rd(rd),
 	LinkCondition(3, ImmediateFrameModulus);
 	LinkCondition(4, AutomationTest);
 	LinkCondition(5, AutomationChanged);
+	LinkCondition(6, RefreshTest);
+	LinkCondition(7, RefreshChanged);
 
 	//This is where you'd do anything you'd do in CreateRunObject in the original SDK.
 	//It's the only place you'll get access to the editdata at runtime, so you should
 	//transfer anything from the editdata to the extension class here. For example:
 	
 	EditData ed (SED);
-	((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->automate = ed.automation;
-//	MyString = ed.MyString;
-//	MyInt = ed.MyInt;
-//	MyArray = ed.MyArray;
-
-	//
-
 
 	Extension::UnPauseGameSession();
-	
-//	((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->_FrameRate = Extension::rh->rhApp->m_hdr.gaFrameRate;
-	((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->_OverAllGameTime = 0;
+
+	// Loads data from Extension Properties
+	GlobalData->automate = ed.automation;
+	GlobalData->refresh = ed.refresh;
+
+	// Autosets the framerate
+	if(ed.automation)
+	{
+		GlobalData->_FrameRate = Extension::rh->rhApp->m_hdr.gaFrameRate;
+	}
+
+
+	// Automatically restarts initializes the data if the refresh is enabled
+	if( GlobalData->refresh == true)
+	{
+		GlobalData->_OverAllGameTime = BackUpData->_OverAllGameTime ;
+		GlobalData->automate = BackUpData->automate;
+		GlobalData->refresh = BackUpData->refresh;
 		
+		GlobalData->_FrameCounter =  BackUpData->_FrameCounter;
+		GlobalData->_EntireGamePaused =  BackUpData->_EntireGamePaused;
+		
+		GlobalData->_PauseStates = BackUpData->_PauseStates;
+		GlobalData->_SessionNames = BackUpData->_SessionNames;
+		GlobalData->_SessionTime = BackUpData->_SessionTime;
+	}
+		
+
 }
 
 /* <destructor>
@@ -140,15 +163,19 @@ short Extension::Handle()
 	//Will not be called next loop	
 	// return REFLAG_ONESHOT;
 
-	if( ((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->automate == true)
+	if( GlobalData->automate == true)
 	{
-	
 		Extension::IncreaseTotalTime();
 		Extension::IncreaseSessionTime();
-		
 	}
 
-	((Extension::OverAllGameData *)Runtime.ReadGlobal("My Global Data"))->_FrameCounter++;
+	if(GlobalData->restart == true)
+	{
+		GlobalData->_FrameRate = Extension::rh->rhApp->m_hdr.gaFrameRate;
+		GlobalData->restart = false;
+	}
+
+	GlobalData->_FrameCounter++;
 	
 	Runtime.GenerateEvent(3);
 

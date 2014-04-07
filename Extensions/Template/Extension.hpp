@@ -88,19 +88,36 @@ public:
 	 * without having to call them manually or
 	 * store a pointer.
 	 */
-
-	
 	struct OverAllGameData
 	{
 		unsigned int _OverAllGameTime;
 		std::vector<unsigned int>_SessionTime;
-		std::vector<char *>_SessionNames;
+		std::vector<TCHAR *>_SessionNames;
 		std::vector<bool>_PauseStates;
 		unsigned int _FrameRate;
 		bool _EntireGamePaused;
 		bool automate;
+		bool refresh;
 		unsigned int _FrameCounter;
-	} ;
+		bool restart;
+
+		OverAllGameData()
+		{
+			automate = true;
+			refresh = false;
+			_OverAllGameTime = 0;
+			_EntireGamePaused = false;
+			_FrameCounter = 0;
+			restart = false;
+			_FrameRate = 1;
+		}
+
+		OverAllGameData(OverAllGameData Data, int Type)
+		{
+
+		}
+
+	};
 
 	//stdtstring MyString;
 	//int MyInt;
@@ -119,21 +136,21 @@ public:
 	 */
 
 	//Actions - Defined in Actions.cpp
-	
 	unsigned int GetFrameRate();
 	unsigned int GetOverAllSeconds();
 	int GetSessionSecondsbyIndex(unsigned int x);
-	char * GetSessionNameByIndex(unsigned int x);
-	int GetSessionIndexbyName(char * Name);
-	int NumberofSessions();
-	int SessionState(unsigned int x);
-	int GlobalSessionState();
+	const TCHAR * GetSessionNameByIndex(unsigned int x);
+	unsigned int GetSessionIndexbyName(const TCHAR * Name);
+	unsigned int NumberofSessions();
+	unsigned int SessionState(unsigned int x);
+	bool GlobalSessionStae();
 	bool ReturnAutomation();
+	bool ReturnRefresh();
 
-	void SetFrameRate(int x);
+	void SetFrameRate(unsigned int x);
 	void IncreaseTotalTime();
 	void IncreaseSessionTime();
-	void AddSession(char * Name, unsigned int InitialNumber);
+	void AddSession(const TCHAR * Name, unsigned int InitialNumber);
 	void PauseSession(unsigned int x);
 	void UnPauseSession(unsigned int x);
 	void PauseGameSession();
@@ -147,13 +164,18 @@ public:
 	void AutomateOn();
 	void AutomateOff();
 	void AutomateToggle();
+	void RefreshOn();
+	void RefreshOff();
+	void RefreshToggle();
 
 	bool IsSessionActive(unsigned int x);
 	bool IsGameSessionActive();
-	bool FrameModulus(int modulus);
-	bool ImmediateFrameModulus(int modulus);
+	bool FrameModulus(unsigned int modulus);
+	bool ImmediateFrameModulus(unsigned int modulus);
 	bool AutomationTest();
 	bool AutomationChanged();
+	bool RefreshTest();
+	bool RefreshChanged();
 
 
 

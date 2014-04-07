@@ -152,7 +152,7 @@
     <LinkIncremental>true</LinkIncremental>
     <GenerateManifest>false</GenerateManifest>
     <EmbedManifest>false</EmbedManifest>
-    <TargetName>Xable Timer</TargetName>
+    <TargetName>$(ProjectName)</TargetName>
     <TargetExt>.mfx</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Runtime|Win32'">
@@ -255,7 +255,8 @@
       <OutputFile>$(IntDir)Template.bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
-      <Command>..\AutoInstall.bat $(TargetPath) \Extensions</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -304,7 +305,8 @@
       <OutputFile>$(IntDir)Template.bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
-      <Command>..\AutoInstall.bat $(TargetPath) \Extensions</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Runtime|Win32'">
@@ -356,7 +358,8 @@
       <OutputFile>$(IntDir)Template.bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
-      <Command>..\AutoInstall.bat $(TargetPath) \Data\Runtime</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Unicode|Win32'">
@@ -405,7 +408,8 @@
       <OutputFile>$(IntDir)Template.bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
-      <Command>..\AutoInstall.bat $(TargetPath) \Extensions\Unicode</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Edittime Unicode|Win32'">
@@ -457,7 +461,8 @@
       <OutputFile>$(IntDir)Template.bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
-      <Command>..\AutoInstall.bat $(TargetPath) \Extensions\Unicode</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Runtime Unicode|Win32'">
@@ -509,7 +514,8 @@
       <OutputFile>$(IntDir)Template.bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
-      <Command>..\AutoInstall.bat $(TargetPath) \Data\Runtime\Unicode</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug HWA|Win32'">
@@ -558,7 +564,8 @@
       <OutputFile>$(IntDir)Template.bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
-      <Command>..\AutoInstall.bat $(TargetPath) \Extensions\HWA</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Edittime HWA|Win32'">
@@ -610,7 +617,8 @@
       <OutputFile>$(IntDir)Template.bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
-      <Command>..\AutoInstall.bat $(TargetPath) \Extensions\HWA</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Runtime HWA|Win32'">
@@ -662,7 +670,8 @@
       <OutputFile>$(IntDir)Template.bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
-      <Command>..\AutoInstall.bat $(TargetPath) \Data\Runtime\HWA</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

@@ -50,11 +50,11 @@
     <None Include="BuildSettings.vsprops">
       <Filter>This Extension</Filter>
     </None>
-    <None Include="Ext.def">
-      <Filter>This Extension</Filter>
-    </None>
     <None Include="Ext.json">
       <Filter>This Extension\Resource Files</Filter>
+    </None>
+    <None Include="Ext.def">
+      <Filter>This Extension\The Extension Class</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

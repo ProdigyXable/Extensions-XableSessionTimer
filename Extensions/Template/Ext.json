@@ -3,7 +3,7 @@
 	{
 		"Name": "Xable Session Timer",
 		"Author": "Samuel Benton",
-		"Copyright": "Copyright © 2013 Xable Enterprises",
+		"Copyright": "Copyright © 2014 Xable Enterprises",
 		"Comment": "Allows of easy usage of different game 'sessions' such as 'Overall Gameplay Time' or individual level playtimes.",
 		"URL": "http://www.xable.us/",
 		"Help": "http://www.xable.us/xable-session-object.html",
@@ -63,7 +63,13 @@
 			"Separator",
 			[16, "Toggle automation"],
 		],
-						
+
+		["Refresh",
+			[17, "Turn refresh on"],
+			[18, "Turn refresh off"],
+			"Separator",
+			[19, "Toggle refresh"],
+		],				
 	],
 	
 	"ConditionMenu":
@@ -75,9 +81,13 @@
 
 		["Automation",
 			[4,"Is Automation On?"],
-			[5, "Has Automation Changed?"], 
+			[5,"Has Automation Changed?"], 
 		],
-
+		
+		["Refresh",
+			[6, "Is Refresh On?"],
+			[7, "Has Refresh Changed?"],
+		],
 	],
 	"ExpressionMenu":
 	[
@@ -104,16 +114,17 @@
 			[6, "Get Session State"],
 		],
 
+		"Separator",
+
 		["Automation",
 			[8, "Return Automation State"],
 		],
+
+		["Refresh",
+			[9, "Return Refresh State"],
+		],
 		
 		"Separator",
-
-		
-
-		"Separator",
-
 	],
 
 	"Actions":
@@ -197,6 +208,14 @@
 
 		{	"Title": "Toggle automation",
 		},
+		{	"Title": "Turn refresh on",
+		},
+
+		{	"Title": "Turn refresh off",
+		},
+
+		{	"Title": "Toggle refresh",
+		},
 
 	],
 	"Conditions":
@@ -235,6 +254,14 @@
         },
 		 {
 			"Title": "%o : Has Automation changed?",
+            "Triggered": true
+        },
+		{
+			"Title": "%o : Is Refresh on?",
+            "Triggered": false
+        },
+		 {
+			"Title": "%o : Has Refresh changed?",
             "Triggered": true
         },
 	],
@@ -289,6 +316,8 @@
 		{	"Title": "ReturnAutomation(",
 			"Returns": "Integer",
 		},
-
+		{	"Title": "ReturnRefresh(",
+			"Returns": "Integer",
+		},
 	]
 }

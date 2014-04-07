@@ -17,6 +17,12 @@
 	#define MMFEXT	//MMF2, MMF2 Dev
 //	#define PROEXT	//MMF2 Dev only
 
+
+// Global Data Definitions
+#define GlobalData ((Extension::OverAllGameData *)Runtime.ReadGlobal((const TCHAR *)"My Global Data"))
+#define BackUpData ((Extension::OverAllGameData *)Runtime.ReadGlobal((const TCHAR *)"My Global Data Backup"))
+
+
 #include "Edif.h"
 #include "Resource.h"
 

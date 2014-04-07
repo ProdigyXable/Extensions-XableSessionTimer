@@ -36,8 +36,7 @@ namespace Prop
 		Issues,
 		Automate,
 		TickSize,
-		//MyString,
-		//MyInt,
+		Refresh,
 	};
 }
 
@@ -45,9 +44,10 @@ PropData Properties[] = //See the MMF2SDK help file for information on PropData_
 {
 	PropData_StaticString(Prop::Version, (UINT_PTR)"Version:", (UINT_PTR)"Extension Version number"),
 	PropData_StaticString(Prop::Issues, (UINT_PTR)"Email", (UINT_PTR)"Any comments/issues/complaints/questions/etc should be sent here"),
-	PropData_CheckBox(Prop::Automate, (UINT_PTR)"Automation",(UINT_PTR)"Allow the object to handle itself?"),
+	PropData_CheckBox(Prop::Automate, (UINT_PTR)"Automation",(UINT_PTR)"Allow the object to manage itself?"),
 	PropData_EditNumber_Check(Prop::TickSize,(UINT_PTR)"Frames per Game Second",(UINT_PTR)"How many in-game frames equate to one in-game second?"),
 	//PropData_EditMultiLine(Prop::MyString, (UINT_PTR)"My String", (UINT_PTR)"The contents of my string."),
+	PropData_CheckBox(Prop::Refresh, (UINT_PTR)"Refresh",(UINT_PTR)"On Frame Restarts, should the data load backup data? (checked)"),
 	//PropData_EditNumber(Prop::MyInt, (UINT_PTR)"My Integer", (UINT_PTR)"The value of my integer."),
 	PropData_End()
 };
@@ -147,14 +147,12 @@ void *MMF2Func GetPropValue(mv *mV, SerializedED *SED, UINT PropID)
 		}
 	case Prop::Version:
 		{
-			return new CPropDataValue("November 13th, 2013");
+			return new CPropDataValue("April 6th, 2013");
 		}
 	case Prop::TickSize:
 		{
 			return new CPropIntValue(ed.TickSize);
 		}
-
-
 	
 	//case Prop::MyString:
 	//	{
@@ -225,6 +223,10 @@ BOOL MMF2Func GetPropCheck(mv *mV, SerializedED *SED, UINT PropID)
 		{
 			return ed.TickSizeCheck;
 		}
+	case Prop::Refresh:
+		{
+			return ed.refresh;
+		}
 	}
 	//if you changed ed:
 	ed.Serialize(mV, SED);
@@ -254,6 +256,11 @@ void MMF2Func SetPropCheck(mv *mV, SerializedED *SED, UINT PropID, BOOL Ticked)
 	case Prop::TickSize:
 		{
 			ed.TickSizeCheck = Ticked;
+			break;
+		}
+	case Prop::Refresh:
+		{
+			ed.refresh = Ticked;
 			break;
 		}
 	}	
@@ -307,20 +314,23 @@ BOOL MMF2Func IsPropEnabled(mv *mV, SerializedED *SED, UINT PropID)
 	{
 		case Prop::Version:
 		{
-			return TRUE;
+			return true;
 		}
 		case Prop::Issues:
 		{
-			return TRUE;
+			return true;
 		}
 		case Prop::Automate:
-
 		{
-			return TRUE;
+			return true;
 		}
 		case Prop::TickSize:
 		{
 			return !ed.automation;
+		}
+		case Prop::Refresh:
+		{
+				return true;
 		}
 	//case Prop::MyString:	//intentional\\
 	//case Prop::MyInt:		//fallthrough\\
