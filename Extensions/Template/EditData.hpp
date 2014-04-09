@@ -31,6 +31,7 @@ struct EditData
 	bool TickSizeCheck;
 	int TickSize;
 	bool refresh;
+	bool load;
 
 	EditData()
 	{
@@ -38,6 +39,7 @@ struct EditData
 		TickSizeCheck = false;
 		TickSize = 60;
 		refresh = false;
+		load = true;	
 	}
 
 	/* <copy constructor>
@@ -52,6 +54,7 @@ struct EditData
 		TickSizeCheck = from.TickSizeCheck;
 		TickSize = from.TickSize;
 		refresh = from.refresh;
+		load = from.load;
 	}
 
 	/* operator=
@@ -66,6 +69,7 @@ struct EditData
 		TickSize = from.TickSize;
 		TickSizeCheck = from.TickSizeCheck;
 		refresh = from.refresh;
+		load = from.load;
 	}
 
 #ifndef RUN_ONLY
@@ -87,6 +91,7 @@ struct EditData
 		size += sizeof(TickSize);
 		size += sizeof(TickSizeCheck);
 		size += sizeof(refresh);
+		size += sizeof(load);
 
 		//Then, ask MMF2 to provide this space for us in the SerializedED
 		{
@@ -129,6 +134,9 @@ struct EditData
 		memcpy(p, &refresh, sizeof(refresh));
 		p += sizeof(refresh);
 
+		memcpy(p, &load, sizeof(load));
+		p += sizeof(load);
+
 		return true; //return false in the event of an error
 	}
 #endif
@@ -164,6 +172,9 @@ struct EditData
 			
 			refresh = *(bool *)p;
 			p += sizeof(refresh);
+
+			load = *(bool *)p;
+			p += sizeof(load);
 			//Load the data:													Advance the pointer:
 			//MyString = p; /*std::string is smart enough for this*/			p += (MyString.length()+1) * sizeof(stdtstring::value_type);
 			//MyInt = *(int *)p;												p += sizeof(MyInt);
@@ -191,6 +202,6 @@ struct EditData
 	 */
 	~EditData()
 	{
-		//
+		
 	}
 };

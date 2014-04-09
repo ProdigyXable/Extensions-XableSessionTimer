@@ -32,6 +32,9 @@ namespace Prop
 	enum
 	{
 		zNOT_USED = PROPID_EXTITEM_CUSTOM_FIRST,
+		Load,
+		VersionNumber,
+		ExtProp,
 		Version,
 		Issues,
 		Automate,
@@ -42,8 +45,11 @@ namespace Prop
 
 PropData Properties[] = //See the MMF2SDK help file for information on PropData_ macros.
 {
+	PropData_CheckBox(Prop::Load, (UINT_PTR)"Load Property Settings",(UINT_PTR)"Load below settings at the start of the frame"),
+	PropData_Group(Prop::VersionNumber, (UINT_PTR)"Extension Version",(UINT_PTR)""),
 	PropData_StaticString(Prop::Version, (UINT_PTR)"Version:", (UINT_PTR)"Extension Version number"),
 	PropData_StaticString(Prop::Issues, (UINT_PTR)"Email", (UINT_PTR)"Any comments/issues/complaints/questions/etc should be sent here"),
+	PropData_Group(Prop::ExtProp, (UINT_PTR)"Extension Settings",(UINT_PTR)""),
 	PropData_CheckBox(Prop::Automate, (UINT_PTR)"Automation",(UINT_PTR)"Allow the object to manage itself?"),
 	PropData_EditNumber_Check(Prop::TickSize,(UINT_PTR)"Frames per Game Second",(UINT_PTR)"How many in-game frames equate to one in-game second?"),
 	//PropData_EditMultiLine(Prop::MyString, (UINT_PTR)"My String", (UINT_PTR)"The contents of my string."),
@@ -147,7 +153,7 @@ void *MMF2Func GetPropValue(mv *mV, SerializedED *SED, UINT PropID)
 		}
 	case Prop::Version:
 		{
-			return new CPropDataValue("April 6th, 2013");
+			return new CPropDataValue("April 8th, 2013");
 		}
 	case Prop::TickSize:
 		{
@@ -215,6 +221,10 @@ BOOL MMF2Func GetPropCheck(mv *mV, SerializedED *SED, UINT PropID)
 	EditData ed (SED);
 	switch(PropID)
 	{
+	case Prop::Load:
+		{
+			return ed.load;
+		}
 	case Prop::Automate:
 		{
 			return ed.automation;
@@ -248,6 +258,11 @@ void MMF2Func SetPropCheck(mv *mV, SerializedED *SED, UINT PropID, BOOL Ticked)
 	EditData ed (SED);
 	switch(PropID)
 	{
+	case Prop::Load:
+		{
+			ed.load = Ticked;
+			break;
+		}
 	case Prop::Automate:
 		{
 			ed.automation = Ticked;
@@ -263,12 +278,14 @@ void MMF2Func SetPropCheck(mv *mV, SerializedED *SED, UINT PropID, BOOL Ticked)
 			ed.refresh = Ticked;
 			break;
 		}
+
 	}	
 
 	
 	ed.Serialize(mV, SED);
 	mvRefreshProp(mV, SED, Prop::TickSize, false);
-	
+	mvRefreshProp(mV,SED,Prop::Refresh,false);
+	mvRefreshProp(mV,SED,Prop::Automate,false);
 #endif
 }
 
@@ -312,6 +329,10 @@ BOOL MMF2Func IsPropEnabled(mv *mV, SerializedED *SED, UINT PropID)
 	EditData ed (SED);
 	switch(PropID)
 	{
+	case Prop::Load:
+		{
+			return true;
+		}
 		case Prop::Version:
 		{
 			return true;
@@ -322,17 +343,25 @@ BOOL MMF2Func IsPropEnabled(mv *mV, SerializedED *SED, UINT PropID)
 		}
 		case Prop::Automate:
 		{
-			return true;
+			return ed.load;
 		}
 		case Prop::TickSize:
 		{
-			return !ed.automation;
+			return !ed.automation & ed.load;
 		}
 		case Prop::Refresh:
 		{
+				return ed.load;
+		}
+		case Prop::ExtProp:
+		{
 				return true;
 		}
-	//case Prop::MyString:	//intentional\\
+		case Prop::VersionNumber:
+		{
+			return true;
+		}
+		//case Prop::MyString:	//intentional\\
 	//case Prop::MyInt:		//fallthrough\\
 	//	{
 	//		return TRUE; //allows the user to interact with these proeprties

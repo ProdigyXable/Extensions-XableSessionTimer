@@ -27,8 +27,10 @@ namespace DB
 	 */
 	enum
 	{
-//		MyString,
-//		MyInt,
+		DB_Version,
+		DB_SessionSize,
+		DB_GlobalSessionTime,
+		DB_FrameRate,
 	};
 }
 
@@ -41,12 +43,16 @@ WORD DebugTree[] =
 //	DB::MyString|DB_EDITABLE,
 //	DB::MyInt|DB_EDITABLE,
 //	DB::SomethingThatIDontWantTheUserToBeAbleToEditAtRuntime,
+//	DB::DB_Version,
+	DB::DB_FrameRate,
+	DB::DB_GlobalSessionTime,
+	DB::DB_SessionSize,
 	DB_END
 };
 
 #endif
 
-/* GetDerbugTree
+/* GetDebugTree
  * Plain and simple, just return the debug
  * tree pointer from above. If you really
  * want to you can create the debug tree
@@ -73,22 +79,32 @@ LPWORD MMF2Func GetDebugTree(RD *rd)
 void MMF2Func GetDebugItem(LPSTR Buffer, RD *rd, int ID)
 {
 #ifndef RUN_ONLY
-//	char temp[DB_BUFFERSIZE];
-//	switch (ID)
-//	{
-//	case DB::MyString:
-//		{
-//			LoadString(hInstLib, IDS_CURRENTSTRING, temp, DB_BUFFERSIZE);
-//			wsprintf(pBuffer, temp, rdPtr->text);
-//			break;
-//		}
-//	case DB::MyInt:
-//		{
-//			LoadString(hInstLib, IDS_CURRENTVALUE, temp, DB_BUFFERSIZE);
-//			wsprintf(pBuffer, temp, rdPtr->value);
-//			break;
-//		}
-//	}
+	char temp[DB_BUFFERSIZE];
+	switch (ID)
+	{
+	case DB::DB_FrameRate:
+		{
+			wsprintf(Buffer, "Framerate: %i", rd->pExtension->GetFrameRate());
+			break;
+		}
+	case DB::DB_GlobalSessionTime:
+		{
+			wsprintf(Buffer, "Global Time: %i", rd->pExtension->GetOverAllSeconds());
+			break;
+		}
+	case DB::DB_SessionSize:
+		{
+			//LoadString(hInstLib, (UINT_PTR)"NULL", temp, DB_BUFFERSIZE);
+			wsprintf(Buffer, "Total Number of Sessions: %i", rd->pExtension->NumberofSessions());
+			break;
+		}
+	//case DB::DB_SessionSize:
+	//	{
+	//		LoadString(hInstLib, IDS_CURRENTVALUE, temp, DB_BUFFERSIZE);
+	//		wsprintf(Buffer, temp, rdPtr->value);
+	//		break;
+	//	}
+	}
 #endif
 }
 

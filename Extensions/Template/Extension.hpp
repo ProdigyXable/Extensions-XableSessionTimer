@@ -100,6 +100,7 @@ public:
 		bool refresh;
 		unsigned int _FrameCounter;
 		bool restart;
+		bool load;
 
 		OverAllGameData()
 		{
@@ -109,7 +110,8 @@ public:
 			_EntireGamePaused = false;
 			_FrameCounter = 0;
 			restart = false;
-			_FrameRate = 1;
+			_FrameRate = 30;
+			load = true;
 		}
 
 		OverAllGameData(OverAllGameData Data, int Type)
@@ -143,9 +145,9 @@ public:
 	unsigned int GetSessionIndexbyName(const TCHAR * Name);
 	unsigned int NumberofSessions();
 	unsigned int SessionState(unsigned int x);
-	bool GlobalSessionStae();
-	bool ReturnAutomation();
-	bool ReturnRefresh();
+	int GlobalSessionState();
+	int ReturnAutomation();
+	int ReturnRefresh();
 
 	void SetFrameRate(unsigned int x);
 	void IncreaseTotalTime();
@@ -176,12 +178,6 @@ public:
 	bool AutomationChanged();
 	bool RefreshTest();
 	bool RefreshChanged();
-
-
-
-	// bool AreTwoNumbersEqual(int First, int Second);
-
-
 
 	short Handle();			//defined & documented in Extension.cpp
 	short Display();		//defined & documented in Extension.cpp

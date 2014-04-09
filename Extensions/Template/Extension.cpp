@@ -81,31 +81,37 @@ Extension::Extension(RD *rd, SerializedED *SED, createObjectInfo *COB) : rd(rd),
 	EditData ed (SED);
 
 	Extension::UnPauseGameSession();
-
+	
 	// Loads data from Extension Properties
-	GlobalData->automate = ed.automation;
-	GlobalData->refresh = ed.refresh;
+	if(ed.load == true)
+	{
+		GlobalData->automate = ed.automation;
+		GlobalData->refresh = ed.refresh;
+	}
 
 	// Autosets the framerate
-	if(ed.automation)
+	if(ed.automation && ed.load)
 	{
 		GlobalData->_FrameRate = Extension::rh->rhApp->m_hdr.gaFrameRate;
 	}
 
 
 	// Automatically restarts initializes the data if the refresh is enabled
-	if( GlobalData->refresh == true)
+	if( GlobalData->refresh == true && GlobalData->restart == true)
 	{
-		GlobalData->_OverAllGameTime = BackUpData->_OverAllGameTime ;
+		GlobalData->_OverAllGameTime = BackUpData->_OverAllGameTime;
 		GlobalData->automate = BackUpData->automate;
 		GlobalData->refresh = BackUpData->refresh;
 		
 		GlobalData->_FrameCounter =  BackUpData->_FrameCounter;
 		GlobalData->_EntireGamePaused =  BackUpData->_EntireGamePaused;
+		GlobalData->_FrameRate = BackUpData->_FrameRate;
 		
 		GlobalData->_PauseStates = BackUpData->_PauseStates;
 		GlobalData->_SessionNames = BackUpData->_SessionNames;
 		GlobalData->_SessionTime = BackUpData->_SessionTime;
+		GlobalData->restart = false;
+		BackUpData->restart = false;
 	}
 		
 
@@ -167,12 +173,6 @@ short Extension::Handle()
 	{
 		Extension::IncreaseTotalTime();
 		Extension::IncreaseSessionTime();
-	}
-
-	if(GlobalData->restart == true)
-	{
-		GlobalData->_FrameRate = Extension::rh->rhApp->m_hdr.gaFrameRate;
-		GlobalData->restart = false;
 	}
 
 	GlobalData->_FrameCounter++;

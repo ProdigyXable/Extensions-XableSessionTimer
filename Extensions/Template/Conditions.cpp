@@ -68,7 +68,15 @@ bool Extension::ImmediateFrameModulus(unsigned int modulus)
 }
 bool Extension::AutomationTest()
 {
-	return GlobalData->automate;
+	if( GlobalData->automate == true)
+	{
+		return true;
+	}
+
+	else
+	{
+		return false;
+	}
 }
 bool Extension::AutomationChanged()
 {
@@ -76,7 +84,15 @@ bool Extension::AutomationChanged()
 }
 bool Extension::RefreshTest()
 {
-	return GlobalData->refresh;
+	if( GlobalData->refresh == true)
+	{
+		return true;
+	}
+
+	else
+	{
+		return false;
+	}
 }
 bool Extension::RefreshChanged()
 {

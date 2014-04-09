@@ -48,21 +48,21 @@ const TCHAR * Extension::GetSessionNameByIndex(unsigned int x)
 unsigned int Extension::GetSessionIndexbyName(const TCHAR * Name)
 {
 	unsigned int x = 0;
-	bool Nothing = false;
+	bool EmptyNothing = false;
 
 	do
 	{
 		if(_tcscmp((GlobalData->_SessionNames[x]), _tcsdup(Name)) == 0)
 		{
-			bool Nothing = true;
+			bool EmptyNothing = true;
 			return x;	
 		}
 
 		++x;
 	}
-	while(x < (GlobalData->_SessionNames.size()) && Nothing == false);
+	while(x < (GlobalData->_SessionNames.size()) && EmptyNothing == false);
 	
-	if(Nothing == false)
+	if(EmptyNothing == false)
 	{
 		return -1;
 	}
@@ -108,17 +108,41 @@ unsigned int Extension::SessionState(unsigned int x)
 	return 0;
 }
 
-bool Extension::GlobalSessionState()
+int Extension::GlobalSessionState()
 {
-	return GlobalData->_EntireGamePaused;
+	if(GlobalData->_EntireGamePaused == true)
+	{
+		return 1;
+	}
+
+	else
+	{
+		return 0;
+	}
 }
 
-bool Extension::ReturnAutomation()
+int Extension::ReturnAutomation()
 {
-	return GlobalData->automate;
+	if(GlobalData->automate == true)
+	{
+		return 1;
+	}
+
+	else
+	{
+		return 0;
+	}
 }
 
-bool Extension::ReturnRefresh()
+int Extension::ReturnRefresh()
 {
-	return GlobalData->refresh;
+	if(GlobalData->refresh == true)
+	{
+		return 1;
+	}
+
+	else
+	{
+		return 0;
+	}
 }

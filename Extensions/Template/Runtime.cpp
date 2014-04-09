@@ -134,7 +134,7 @@ void MMF2Func StartFrame(mv *mV, CRunApp *App, int FrameIndex)
 
 		else
 		{
-
+			((Extension::OverAllGameData *)Edif::Runtime::ReadGlobal(mV, App, (const TCHAR *)"My Global Data"))->restart = true;
 		}
 }
 /* EndFrame
@@ -144,6 +144,8 @@ void MMF2Func StartFrame(mv *mV, CRunApp *App, int FrameIndex)
  */
 void MMF2Func EndFrame(mv *mV, CRunApp *App, int FrameIndex)
 {
+	((Extension::OverAllGameData *)Edif::Runtime::ReadGlobal(mV, App, (const TCHAR *)"My Global Data"))->restart = false;
+
 	Edif::Runtime::WriteGlobal(mV, App, (const TCHAR *)"My Global Data Backup", 0);
 	delete (Extension::OverAllGameData *)Edif::Runtime::ReadGlobal(mV, App, (const TCHAR *)"My Global Data Backup");
 }
