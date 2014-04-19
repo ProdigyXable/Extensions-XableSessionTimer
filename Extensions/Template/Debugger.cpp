@@ -27,6 +27,8 @@ namespace DB
 	 */
 	enum
 	{
+		Parent_Global,
+		Session_Global,
 		DB_Version,
 		DB_SessionSize,
 		DB_GlobalSessionTime,
@@ -44,9 +46,9 @@ WORD DebugTree[] =
 //	DB::MyInt|DB_EDITABLE,
 //	DB::SomethingThatIDontWantTheUserToBeAbleToEditAtRuntime,
 //	DB::DB_Version,
-	DB::DB_FrameRate,
-	DB::DB_GlobalSessionTime,
-	DB::DB_SessionSize,
+	DB_PARENT|DB::Parent_Global, DB::DB_GlobalSessionTime,
+	DB_PARENT|DB::Parent_Global, DB::DB_FrameRate,
+	DB_PARENT|DB::Session_Global, DB::DB_SessionSize,
 	DB_END
 };
 
@@ -78,33 +80,75 @@ LPWORD MMF2Func GetDebugTree(RD *rd)
  */
 void MMF2Func GetDebugItem(LPSTR Buffer, RD *rd, int ID)
 {
+	LPWSTR pBuffer = (LPWSTR)Buffer;
+
 #ifndef RUN_ONLY
-	char temp[DB_BUFFERSIZE];
-	switch (ID)
-	{
-	case DB::DB_FrameRate:
+//	char temp[DB_BUFFERSIZE];
+	
+	#ifndef UNICODE
+		switch (ID)
 		{
-			wsprintf(Buffer, "Framerate: %i", rd->pExtension->GetFrameRate());
-			break;
+		case DB::DB_FrameRate:
+			{
+				wsprintf(Buffer, "Framerate: %i", rd->pExtension->GetFrameRate());
+				break;
+			}
+		case DB::DB_GlobalSessionTime:
+			{
+				wsprintf(Buffer, "Global Time: %i", rd->pExtension->GetOverAllSeconds());
+				break;
+			}
+		case DB::DB_SessionSize:
+			{
+				//LoadString(hInstLib, (UINT_PTR)"NULL", temp, DB_BUFFERSIZE);
+				wsprintf(Buffer, "Total Number of Sessions: %i", rd->pExtension->NumberofSessions());
+				break;
+			}
+		case DB::Parent_Global:
+			{
+				wsprintf(Buffer, "Global Session Data");
+				break;
+			}
+		case DB::Session_Global:
+			{
+				wsprintf(Buffer, "Session Data");
+				break;
+			}
 		}
-	case DB::DB_GlobalSessionTime:
+	#else UNICODE
+		switch (ID)
 		{
-			wsprintf(Buffer, "Global Time: %i", rd->pExtension->GetOverAllSeconds());
-			break;
+		case DB::DB_FrameRate:
+			{
+				wsprintf(pBuffer, (LPWSTR)"Framerate: %i", rd->pExtension->GetFrameRate());
+				break;
+			}
+		case DB::DB_GlobalSessionTime:
+			{
+				wsprintf(pBuffer, (LPWSTR)"Global Time: %i", rd->pExtension->GetOverAllSeconds());
+				break;
+			}
+		case DB::DB_SessionSize:
+			{
+				//LoadString(hInstLib, (UINT_PTR)"NULL", temp, DB_BUFFERSIZE);
+				wsprintf(pBuffer, (LPWSTR)"Total Number of Sessions: %i", rd->pExtension->NumberofSessions());
+				break;
+			}
+		case DB::Parent_Global:
+			{
+				wsprintf(pBuffer, (LPWSTR)"Global Session Data");
+				break;
+			}
+		case DB::Session_Global:
+			{
+				wsprintf(pBuffer, (LPWSTR)"Session Data");
+				break;
+			}
 		}
-	case DB::DB_SessionSize:
-		{
-			//LoadString(hInstLib, (UINT_PTR)"NULL", temp, DB_BUFFERSIZE);
-			wsprintf(Buffer, "Total Number of Sessions: %i", rd->pExtension->NumberofSessions());
-			break;
-		}
-	//case DB::DB_SessionSize:
-	//	{
-	//		LoadString(hInstLib, IDS_CURRENTVALUE, temp, DB_BUFFERSIZE);
-	//		wsprintf(Buffer, temp, rdPtr->value);
-	//		break;
-	//	}
-	}
+
+	
+#endif
+
 #endif
 }
 

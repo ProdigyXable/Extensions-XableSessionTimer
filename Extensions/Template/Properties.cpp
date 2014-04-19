@@ -46,14 +46,16 @@ namespace Prop
 PropData Properties[] = //See the MMF2SDK help file for information on PropData_ macros.
 {
 	PropData_CheckBox(Prop::Load, (UINT_PTR)"Load Property Settings",(UINT_PTR)"Load below settings at the start of the frame"),
+	
 	PropData_Group(Prop::VersionNumber, (UINT_PTR)"Extension Version",(UINT_PTR)""),
 	PropData_StaticString(Prop::Version, (UINT_PTR)"Version:", (UINT_PTR)"Extension Version number"),
 	PropData_StaticString(Prop::Issues, (UINT_PTR)"Email", (UINT_PTR)"Any comments/issues/complaints/questions/etc should be sent here"),
 	PropData_Group(Prop::ExtProp, (UINT_PTR)"Extension Settings",(UINT_PTR)""),
+	
 	PropData_CheckBox(Prop::Automate, (UINT_PTR)"Automation",(UINT_PTR)"Allow the object to manage itself?"),
 	PropData_EditNumber_Check(Prop::TickSize,(UINT_PTR)"Frames per Game Second",(UINT_PTR)"How many in-game frames equate to one in-game second?"),
-	//PropData_EditMultiLine(Prop::MyString, (UINT_PTR)"My String", (UINT_PTR)"The contents of my string."),
 	PropData_CheckBox(Prop::Refresh, (UINT_PTR)"Refresh",(UINT_PTR)"On Frame Restarts, should the data load backup data? (checked)"),
+	//PropData_EditMultiLine(Prop::MyString, (UINT_PTR)"My String", (UINT_PTR)"The contents of my string."),
 	//PropData_EditNumber(Prop::MyInt, (UINT_PTR)"My Integer", (UINT_PTR)"The value of my integer."),
 	PropData_End()
 };
@@ -278,9 +280,7 @@ void MMF2Func SetPropCheck(mv *mV, SerializedED *SED, UINT PropID, BOOL Ticked)
 			ed.refresh = Ticked;
 			break;
 		}
-
 	}	
-
 	
 	ed.Serialize(mV, SED);
 	mvRefreshProp(mV, SED, Prop::TickSize, false);
