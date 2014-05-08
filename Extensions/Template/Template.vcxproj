@@ -256,8 +256,7 @@
       <OutputFile>$(IntDir)Template.bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>..\AutoInstall.bat $(ProjectDir)MFX</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -306,8 +305,7 @@
       <OutputFile>$(IntDir)Template.bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>..\AutoInstall.bat $(ProjectDir)MFX</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Runtime|Win32'">
@@ -361,8 +359,7 @@
       <PreserveSbr>true</PreserveSbr>
     </Bscmake>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>..\AutoInstall.bat $(ProjectDir)MFX</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Unicode|Win32'">
@@ -411,8 +408,7 @@
       <OutputFile>$(IntDir)Template.bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>..\AutoInstall.bat $(ProjectDir)MFX</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Edittime Unicode|Win32'">
@@ -464,8 +460,7 @@
       <OutputFile>$(IntDir)Template.bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>..\AutoInstall.bat $(ProjectDir)MFX</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Runtime Unicode|Win32'">
@@ -517,8 +512,7 @@
       <OutputFile>$(IntDir)Template.bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>..\AutoInstall.bat $(ProjectDir)MFX</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug HWA|Win32'">
@@ -567,8 +561,7 @@
       <OutputFile>$(IntDir)Template.bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>..\AutoInstall.bat $(ProjectDir)MFX</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Edittime HWA|Win32'">
@@ -620,8 +613,7 @@
       <OutputFile>$(IntDir)Template.bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>..\AutoInstall.bat $(ProjectDir)MFX</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Runtime HWA|Win32'">
@@ -673,8 +665,7 @@
       <OutputFile>$(IntDir)Template.bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>..\AutoInstall.bat $(ProjectDir)MFX</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
